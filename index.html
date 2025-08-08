@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instacart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    body {
+      background-color: #f6f7fb;
+    }
+
+    .navbar {
+      background-color: #43b02a !important;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(67, 176, 42, 0.08);
+    }
+
+    .navbar-brand {
+      color: #fff !important;
+      font-weight: bold;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .btn-outline-secondary {
+      border: none;
+      color: #fff;
+      background: transparent;
+    }
+
+    .offcanvas-header {
+      background-color: #43b02a;
+      color: #fff;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .offcanvas-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .offcanvas {
+      border-radius: 0 20px 20px 0;
+      box-shadow: 2px 0 16px rgba(67, 176, 42, 0.08);
+    }
+
+    .dropdown-toggle {
+      background-color: #43b02a !important;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 1rem;
+      border: none;
+      padding: 10px 20px;
+    }
+
+    .dropdown-menu {
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(67, 176, 42, 0.08);
+      margin-top: 8px;
+      min-width: 220px;
+    }
+
+    .dropdown-item {
+      font-size: 1rem;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dropdown-item:hover {
+      background-color: #eafbe7;
+      color: #43b02a;
+    }
+
+    .category-icon {
+      width: 22px;
+      text-align: center;
+    }
+
+    .category-section {
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .category-section .row {
+      justify-content: center;
+    }
+
+    li {
+      list-style: none;
+      cursor: pointer;
+      color: #43b02a;
+    }
+    .ch{
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #43b02a;
+      margin-bottom: 1rem;
+    }
+    .ch:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .cb{
+      font-size: 1rem;
+      color: #6c757d;
+      margin-bottom: 0.5rem;
+    }
+    .cb:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    #contact {
+      background-color: #f8f9fa;
+      padding: 2rem 0;
+      text-align: center;
+      color: #6c757d;
+      justify-content: space-evenly;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+        .nb{
+      font-size: 1.3rem;
+      color: #0e4601;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+    }
+    .nb:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar px-3">
+    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+      aria-controls="sidebar">
+      <i class="fas fa-bars fa-lg"></i>
+    </button>
+    <a class="nb" href="https://www.instacart.com" target="_blank"><i class="fa-solid fa-cart-shopping"></i> My Cart</a>
+    <a class="nb" href="#" target="_blank"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    <a class="nb" href="#popular"><i class="fa-solid fa-fire"></i>Popular Items</a>
+    <a class="nb" href="https://www.instacart.com" target="_blank"><i class="fa-solid fa-store"></i> Stores</a>
+    <a class="nb" href="https://www.instacart.com" target="_blank"><i class="fa-solid fa-list"></i>Categories</a>
+        <a class="nb" href="log.html" target="_blank"><i class="fa-regular fa-user"></i> Log in</a>
+    <a class="nb" href="log.html" target="_blank"><i class="fa-regular fa-circle-user"></i> Sign up</a>
+    <span class="navbar-brand ms-3">Instacart</span>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="sidebarLabel">Shop Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="fas fa-shopping-basket me-2"></i> Shop Categories
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-apple-alt"></i></span>Fresh
+              Produce</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-bread-slice"></i></span>Baked Goods</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-cheese"></i></span>Dairy</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-drumstick-bite"></i></span>Meat</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-fish"></i></span>Seafood</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-ice-cream"></i></span>Frozen Foods</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-store"></i></span>Pantry</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-hamburger"></i></span>Deli</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-cookie-bite"></i></span>Snacks</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-home"></i></span>Household</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-pump-soap"></i></span>Cleaning Supplies</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-user"></i></span>Personal
+              Care</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-baby"></i></span>Baby</a>
+          </li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-dog"></i></span>Pet
+              Supplies</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-globe"></i></span>International</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-leaf"></i></span>Organic</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-pills"></i></span>Pharmacy</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-wine-bottle"></i></span>Alcohol</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-beer"></i></span>Beer</a>
+          </li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-wine-glass-alt"></i></span>Wine</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-glass-whiskey"></i></span>Liquor</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-lemon"></i></span>Juice</a>
+          </li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-glass-martini-alt"></i></span>Soda</a></li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-mug-hot"></i></span>Tea</a>
+          </li>
+          <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                  class="fas fa-coffee"></i></span>Coffee</a></li>
+        </ul>
+        <div class="dropdown mt-3">
+          <button class="btn btn-success dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-store me-2"></i> Shop by Brand
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-shopping-cart"></i></span>Costco</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-bullseye"></i></span>Target</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store"></i></span>Walmart</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-shopping-bag"></i></span>Kroger</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-shopping-basket"></i></span>Aldi</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-leaf"></i></span>Whole
+                Foods</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store-alt"></i></span>Safeway</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-users"></i></span>Sam's
+                Club</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-shopping-cart"></i></span>Trader Joe's</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store"></i></span>Publix</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store"></i></span>Meijer</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store"></i></span>H-E-B</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store"></i></span>Wegmans</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-store"></i></span>Food
+                Lion</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i class="fas fa-store"></i></span>Stop &
+                Shop</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store"></i></span>Giant</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store"></i></span>Albertsons</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store"></i></span>Sprouts</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store"></i></span>Hy-Vee</a></li>
+            <li><a class="dropdown-item" href="#"><span class="category-icon"><i
+                    class="fas fa-store"></i></span>ShopRite</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ...existing code... -->
+  <div class="container mt-5">
+    <!-- Search Bar -->
+    <div class="row mb-4">
+      <div class="col-md-8 mx-auto">
+        <div class="input-group">
+          <input type="text" class="form-control form-control-lg rounded-start"
+            placeholder="Search for products or stores...">
+          <button class="btn btn-success px-4 rounded-end" type="button"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+    <!-- Featured Stores -->
+    <h4 class="mb-3 fw-bold text-success">Featured Stores</h4>
+    <div class="row mb-5">
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Costco_Wholesale_logo_2010-10-26.svg/2560px-Costco_Wholesale_logo_2010-10-26.svg.png"
+            class="card-img-top p-3" alt="Costco" style="height:80px;object-fit:contain;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Costco</h6>
+            <a href="#" class="btn btn-outline-success btn-sm rounded-pill">Shop now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Target_logo.svg" class="card-img-top p-3"
+            alt="Target" style="height:80px;object-fit:contain;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Target</h6>
+            <a href="#" class="btn btn-outline-success btn-sm rounded-pill">Shop now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg" class="card-img-top p-3"
+            alt="Walmart" style="height:80px;object-fit:contain;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Walmart</h6>
+            <a href="#" class="btn btn-outline-success btn-sm rounded-pill">Shop now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img
+            src="https://media.cnn.com/api/v1/images/stellar/prod/191105131229-20191105-kroger-new-logo-gfx.jpg?q=w_1600,h_900,x_0,y_0,c_fill"
+            class="card-img-top p-3" alt="Kroger" style="height:80px;object-fit:contain;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Kroger</h6>
+            <a href="#" class="btn btn-outline-success btn-sm rounded-pill">Shop now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img src="https://cdn.worldvectorlogo.com/logos/aldi-nord-logo.svg" class="card-img-top p-3" alt="Aldi"
+            style="height:80px;object-fit:contain;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Aldi</h6>
+            <a href="#" class="btn btn-outline-success btn-sm rounded-pill">Shop now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Whole_Foods_Market_201x_logo.svg/1024px-Whole_Foods_Market_201x_logo.svg.png"
+            class="card-img-top p-3" alt="Whole Foods" style="height:80px;object-fit:contain;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Whole Foods</h6>
+            <a href="#" class="btn btn-outline-success btn-sm rounded-pill">Shop now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Safeway_Logo.svg/1024px-Safeway_Logo.svg.png"
+            class="card-img-top p-3" alt="Safeway" style="height:80px;object-fit:contain;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Safeway</h6>
+            <a href="#" class="btn btn-outline-success btn-sm rounded-pill">Shop now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkr1NL5ekoxbxNufB-C3tZ0kVnzMuAyG-a4A&s"
+            class="card-img-top p-3" alt="Sam's Club" style="height:80px;object-fit:contain;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Sam's Club</h6>
+            <a href="#" class="btn btn-outline-success btn-sm rounded-pill">Shop now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Product Grid -->
+     <div id="popular">
+    <h4 class="mb-3 fw-bold text-success mt-5 text-center">Popular Products</h4>
+    <div class="row">
+      <div class="col-6 col-md-3 mb-4">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img src="https://domf5oio6qrcr.cloudfront.net/medialibrary/11525/0a5ae820-7051-4495-bcca-61bf02897472.jpg"
+            class="card-img-top" alt="Apples" style="height:160px;object-fit:cover;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Apples</h6>
+            <p class="card-text text-muted">$2.99 / lb</p>
+            <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/02/Glass-and-bottle-of-milk-fe0997a.jpg?resize=1366,1366"
+            class="card-img-top" alt="Milk" style="height:160px;object-fit:cover;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Milk</h6>
+            <p class="card-text text-muted">$3.49 / gal</p>
+            <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img src="https://assets.bonappetit.com/photos/5c62e4a3e81bbf522a9579ce/16:9/w_4000,h_2250,c_limit/milk-bread.jpg"
+            class="card-img-top" alt="Bread" style="height:160px;object-fit:cover;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Bread</h6>
+            <p class="card-text text-muted">$2.49 / loaf</p>
+            <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img src="https://www.healthyfood.com/wp-content/uploads/2017/03/Ask-the-experts-Raw-chicken.jpg"
+            class="card-img-top" alt="Chicken" style="height:160px;object-fit:cover;">
+          <div class="card-body text-center">
+            <h6 class="card-title">Chicken</h6>
+            <p class="card-text text-muted">$5.99 / lb</p>
+            <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <h4 class="mb-3 fw-bold text-success mt-5 text-center">Fresh Produce</h4>
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/AN313-Tomatoes-732x549-Thumb-732x549.jpg"
+          class="card-img-top" alt="Tomatoes" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Tomatoes</h6>
+          <p class="card-text text-muted">$2.49 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://png.pngtree.com/png-clipart/20220716/ourmid/pngtree-banana-yellow-fruit-banana-skewers-png-image_5944324.png"
+          class="card-img-top" alt="Bananas" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Bananas</h6>
+          <p class="card-text text-muted">$0.69 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdumrcTrLti7sBO9FH0Ha0y0qUM4IiZ_C3ww&s"
+          class="card-img-top" alt="Strawberries" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Strawberries</h6>
+          <p class="card-text text-muted">$3.99 / 1 lb box</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://static1.squarespace.com/static/5d96d524052c897425394aaf/5d9d39f74e3f015a64248e42/5e6897aa284ae20ceb2b322a/1741181146183/romaine-lettuce-health-benefits.jpg?format=1500w"
+          class="card-img-top" alt="Lettuce" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Lettuce</h6>
+          <p class="card-text text-muted">$1.29 / head</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4 class="mb-3 fw-bold text-success mt-5 text-center">Dairy</h4>
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/02/Glass-and-bottle-of-milk-fe0997a.jpg?resize=1366,1366"
+          class="card-img-top" alt="Milk" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Milk</h6>
+          <p class="card-text text-muted">$3.79 / gal</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuQ7c62vKeL703MI1cu4aNnd350SE54QjzDQ&s"
+          class="card-img-top" alt="Cheese" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Cheese</h6>
+          <p class="card-text text-muted">$5.49 / 8oz</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.bhg.com/thmb/-luCrhu9Eh1C2u-oZXseX5tKAbk=/3000x0/filters:no_upscale():strip_icc()/bhg-how-many-grams-are-in-one-stick-of-butter-03-2c71be43bb20474384f7483c3827f8e7.jpg"
+          class="card-img-top" alt="Butter" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Butter</h6>
+          <p class="card-text text-muted">$3.99 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.happysimpleliving.com/wp-content/uploads/2024/02/homemade-greek-yogurt-featured-500x500.jpg"
+          class="card-img-top" alt="Yogurt" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Yogurt</h6>
+          <p class="card-text text-muted">$1.29 / cup</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mb-3 fw-bold text-success mt-5 text-center">Meat</h4>
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.healthyfood.com/wp-content/uploads/2017/03/Ask-the-experts-Raw-chicken.jpg"
+          class="card-img-top" alt="Chicken" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Chicken</h6>
+          <p class="card-text text-muted">$6.99 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.billyparisi.com/wp-content/uploads/2023/07/homemade-ground-beef-1.jpg"
+          class="card-img-top" alt="Beef" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Ground Beef</h6>
+          <p class="card-text text-muted">$7.99 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://pork2go.com/wp-content/uploads/2021/08/Pork-Chops-2.jpg"
+          class="card-img-top" alt="Pork Chops" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Pork Chops</h6>
+          <p class="card-text text-muted">$5.49 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://images.squarespace-cdn.com/content/v1/5f7f72e12421313c94f4609c/90379b50-0c1b-4fe8-95d5-4e4e95392bab/raw+turkey+%281%29.jpg"
+          class="card-img-top" alt="Turkey" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Turkey</h6>
+          <p class="card-text text-muted">$8.99 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mb-3 fw-bold text-success mt-5 text-center">Seafood</h4>
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://res.cloudinary.com/wildasset/image/upload/c_scale,w_1000,f_auto,q_auto,w_2520/v1685017400/blog/rawsalmonfillets.jpg"
+          class="card-img-top" alt="Salmon" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Salmon</h6>
+          <p class="card-text text-muted">$9.99 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.acadiacrawfish.com/wp-content/uploads/shrimp.jpg"
+          class="card-img-top" alt="Shrimp" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Shrimp</h6>
+          <p class="card-text text-muted">$12.99 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.thedailymeal.com/img/gallery/chef-warns-not-to-make-these-mistakes-when-cooking-crab-legs/undercooking-the-crab-legs-1714578249.jpg"
+          class="card-img-top" alt="Crab" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Crab Legs</h6>
+          <p class="card-text text-muted">$19.99 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mb-3 fw-bold text-success mt-5 text-center">Frozen Foods</h4>
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.allrecipes.com/thmb/qU9RzlqCysXOoaH-urHNCCQLXLs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-56803-very-chocolate-ice-cream-Beauties-4x3-0343db03e550403aaab1a0d52cbef744.jpg"
+          class="card-img-top" alt="Ice Cream" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Ice Cream</h6>
+          <p class="card-text text-muted">$4.99 / tub</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.simplyrecipes.com/thmb/CtDSSnSU_NcHSvnkuojnJYLbIh8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Food-Editor-Frozen-Pizza-LEAD-02-6f0d76803e5f4dd8aa1b25a26b604ee6.jpg"
+          class="card-img-top" alt="Frozen Pizza" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Frozen Pizza</h6>
+          <p class="card-text text-muted">$6.99 / each</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://healthyschoolrecipes.com/wp-content/uploads/elementor/thumbs/frozen-veg-2-scaled-pavlcx0ff4ivvhkzqap9onale4yratjy9v4wpk7hxk.jpg"
+          class="card-img-top" alt="Frozen Veggies" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Frozen Veggies</h6>
+          <p class="card-text text-muted">$2.99 / bag</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mb-3 fw-bold text-success mt-5 text-center">Pantry</h4>
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.bhg.com/thmb/pP6kXWpLdsE4VW4i6GKfbHCvsEM=/4000x0/filters:no_upscale():strip_icc()/BHG-Eat-Raw-Pasta-BpdMkCMDKV5BN40-0CWwLo-8b117e7f718f4ba0b5baf6cbf2d5a173.jpg"
+          class="card-img-top" alt="Pasta" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Pasta</h6>
+          <p class="card-text text-muted">$1.99 / box</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.healthdigest.com/img/gallery/is-it-safe-to-eat-raw-rice/intro-1666698670.jpg"
+          class="card-img-top" alt="Rice" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Rice</h6>
+          <p class="card-text text-muted">$2.99 / bag</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.everythingspeachy.co.uk/wp-content/uploads/2017/07/Raw-Cereal-Bowl-with-Buckwheat.jpg"
+          class="card-img-top" alt="Cereal" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Cereal</h6>
+          <p class="card-text text-muted">$3.99 / box</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mb-3 fw-bold text-success mt-5 text-center">Deli</h4>
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://images.squarespace-cdn.com/content/v1/5f7f72e12421313c94f4609c/90379b50-0c1b-4fe8-95d5-4e4e95392bab/raw+turkey+%281%29.jpg"
+          class="card-img-top" alt="Turkey" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Turkey</h6>
+          <p class="card-text text-muted">$5.99 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.salumificiomarchisio.com/wp-content/uploads/2014/08/PROSCIUTTO-CRUDO.jpg"
+          class="card-img-top" alt="Ham" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Ham</h6>
+          <p class="card-text text-muted">$6.99 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://embed.widencdn.net/img/beef/65dqjurwie/exact/Eye%20of%20Round%20Roast.psd?keep=c&u=7fueml"
+          class="card-img-top" alt="Roast Beef" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Roast Beef</h6>
+          <p class="card-text text-muted">$7.99 / lb</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mb-3 fw-bold text-success mt-5 text-center">Alcohol</h4>
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.thespruceeats.com/thmb/N9TEoqtQz-R9zkjMXM8I530sj30=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/red-wine-is-poured-into-a-glass-from-a-bottle--light-background--1153158143-98320451802c485cb6d7b5437c7fd60a.jpg"
+          class="card-img-top" alt="Wine" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Wine</h6>
+          <p class="card-text text-muted">$12.99 / bottle</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://glacier-design.com/wp-content/uploads/2022/10/Can-you-hydrate-yourself-with-beer-scaled.jpg"
+          class="card-img-top" alt="Beer" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Beer</h6>
+          <p class="card-text text-muted">$8.99 / pack</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/UR/DW/MZ/184555078/wishkey-glass-decanter.jpg"
+          class="card-img-top" alt="Whiskey" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Whiskey</h6>
+          <p class="card-text text-muted">$24.99 / bottle</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mb-3 fw-bold text-success mt-5 text-center">Beverages</h4>
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.kitchentreaty.com/wp-content/uploads/2025/03/fresh-squeezed-orange-juice-2.jpg"
+          class="card-img-top" alt="Orange Juice" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Orange Juice</h6>
+          <p class="card-text text-muted">$3.99 / bottle</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.cdccoffee.com/wp-content/uploads/2022/03/Bottle-Soda.png"
+          class="card-img-top" alt="Soda" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Soda</h6>
+          <p class="card-text text-muted">$1.49 / can</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.everydaycheapskate.com/wp-content/uploads/20240705-how-to-make-iced-tea-glass-with-ice-cubes-and-sliced-and-whole-lemons-500x500.png"
+          class="card-img-top" alt="Iced Tea" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Iced Tea</h6>
+          <p class="card-text text-muted">$2.49 / bottle</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-2 mb-3">
+      <div class="card border-0 shadow-sm rounded-4">
+        <img src="https://www.eatright.org/-/media/images/eatright-articles/eatright-article-feature-images/benefitsofcoffee_600x450.jpg?as=0&w=967&rev=6c8a9cd4a94d4cac8af8543054fd7b07&hash=4C95EA3A031A783C6DFA3ED04AB4FED4"
+          class="card-img-top" alt="Coffee" style="height:100px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h6 class="card-title">Coffee</h6>
+          <p class="card-text text-muted">$5.99 / bag</p>
+          <button class="btn btn-success btn-sm rounded-pill">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <div id="contact" class="container bg-light text-dark py-4">
+      <ul class="list-unstyled text-center py-4">
+        <p class="ch">About</p>
+        <li class="cb">Contact Us</li>
+        <li class="cb">+1 (932) 732 9028</li>
+        <li class="cb">About us</li>
+        <li class="cb">Delivery information</li>
+      </ul>
+      <ul class="list-unstyled text-center py-4">
+        <p class="ch">Account</p>
+        <li class="cb">Sign In</li>
+        <li class="cb">Cart</li>
+        <li class="cb">Track Order</li>
+        <li class="cb">Help</li>
+      </ul>
+      <ul class="list-unstyled text-center py-4">
+        <p class="ch">Download The App</p>
+        <li class="cb">App Store Or Google Play</li>
+        <div id="app">
+          <img src="play.jpg" alt="Google Play Store" style="height:40px;object-fit:contain;" class="cb">
+          <img src="app.jpg" alt="Apple App Store" style="height:40px;object-fit:contain;" class="cb">
+        </div>
+      </ul>
+            <ul class="list-unstyled text-center py-4">
+        <p class="ch">Payment Options</p>
+          <li class="cb">Pay In Any Way</li>
+          <img src="pay.png" alt="PayMent Cards" style="height:40px;object-fit:contain;" class="cb">
+        </div>
+      </ul>
+    </div>
+    </div>
+    <div class="container text-center py-4">
+      <p class="mb-0">© 2023 Grocery Store. All rights reserved.</p>
+      <p class="mb-0"><a href="#" class="text-success">Privacy Policy</a> | <a href="#" class="text-success">Terms of
+          Service</a></p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
